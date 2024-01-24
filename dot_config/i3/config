@@ -24,7 +24,8 @@ bindsym $mod+Return exec wezterm
 
 bindsym $mod+Shift+q kill
 
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-6/launcher.sh
+bindsym $mod+F4 exec --no-startup-id ~/.config/rofi/powermenu/type-6/powermenu.sh
 
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -133,27 +134,29 @@ bar {
 exec_always xrandr --output DP-2 --mode 1920x1080 -r 165 --primary --left-of DP-0 
 exec_always xrandr --output DP-0 --mode 1920x1080 -r 165 
 exec_always --no-startup-id dunst
-exec_always --no-startup-id feh --randomize --bg-fill ~/Wallpapers/
+exec_always --no-startup-id feh --randomize --bg-fill ~/wallpapers/
 exec_always --no-startup-id picom -cb 
 
 exec --no-startup-id i3-msg "workspace 10, move workspace to output DVI-D-1; exec discord" 
 exec --no-startup-id i3-msg "workspace 9, move workspace to output DVI-D-1; exec spotify" 
 
 
-
-
 gaps outer 5px
 gaps inner 10px
 smart_gaps on
+smart_borders on
+
+for_window [class="^.*"] border pixel 3
+
 
 set $text-color		#FFFFFF
 set $primary-color	#f08f2d
-set $secondary-color	#0f3e3e
-set $accent-color	#8c46d2
+set $secondary-color	#8c46d2
+set $accent-color	#0f3e3e
 set $background-color	#232323
 
 #			border          	background      	text            indicator  
-client.focused		$primary-color 		$background-color	$text-color	$accent-color
-client.unfocused	$secondary-color 	$background-color	$text-color	$accent-color
+client.focused		$primary-color 		$background-color	$text-color	$accent-color $primary-color
+client.unfocused	$secondary-color 	$background-color	$text-color	$accent-color $secondary-color
 
 
